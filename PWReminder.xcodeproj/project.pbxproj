@@ -7,25 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B332D4141F1B962600DC9B8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D4131F1B962600DC9B8E /* main.m */; };
-		B332D4171F1B962600DC9B8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D4161F1B962600DC9B8E /* AppDelegate.m */; };
-		B332D41A1F1B962600DC9B8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D4191F1B962600DC9B8E /* ViewController.m */; };
-		B332D41D1F1B962600DC9B8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B332D41B1F1B962600DC9B8E /* Main.storyboard */; };
-		B332D41F1F1B962600DC9B8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B332D41E1F1B962600DC9B8E /* Assets.xcassets */; };
-		B332D4221F1B962600DC9B8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B332D4201F1B962600DC9B8E /* LaunchScreen.storyboard */; };
+		AE038D2DF4FD1BA05A25FAD7 /* libPods-PWReminder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E99965C56BA54767CA1620 /* libPods-PWReminder.a */; };
+		B332D4371F1B99B900DC9B8E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D42C1F1B99B900DC9B8E /* MainViewController.m */; };
+		B332D4381F1B99B900DC9B8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D4311F1B99B900DC9B8E /* AppDelegate.m */; };
+		B332D4391F1B99B900DC9B8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B332D4321F1B99B900DC9B8E /* Assets.xcassets */; };
+		B332D43A1F1B99B900DC9B8E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B332D4331F1B99B900DC9B8E /* Info.plist */; };
+		B332D43B1F1B99B900DC9B8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B332D4341F1B99B900DC9B8E /* LaunchScreen.storyboard */; };
+		B332D43C1F1B99B900DC9B8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D4351F1B99B900DC9B8E /* main.m */; };
+		B332D4421F1BA05900DC9B8E /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B332D4411F1BA05900DC9B8E /* LocalAuthentication.framework */; };
+		B332D4451F1CB1AB00DC9B8E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D4441F1CB1AB00DC9B8E /* LoginViewController.m */; };
+		B332D4481F1CB27300DC9B8E /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D4471F1CB27300DC9B8E /* LoginView.m */; };
+		B38FC8051F1F067D00CEE4A3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FC8041F1F067D00CEE4A3 /* SettingViewController.m */; };
+		B38FC8081F1F06A900CEE4A3 /* AddOrModViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FC8071F1F06A900CEE4A3 /* AddOrModViewController.m */; };
+		B38FC80B1F1F086400CEE4A3 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FC80A1F1F086400CEE4A3 /* BaseViewController.m */; };
+		B38FC80E1F1F0BD900CEE4A3 /* CustomNavagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FC80D1F1F0BD900CEE4A3 /* CustomNavagationController.m */; };
+		B38FC8111F1F26EC00CEE4A3 /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FC8101F1F26EC00CEE4A3 /* AccountModel.m */; };
+		B38FC8151F1F319400CEE4A3 /* AddOrModView.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FC8141F1F319400CEE4A3 /* AddOrModView.m */; };
+		B38FC8181F1F843B00CEE4A3 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FC8171F1F843A00CEE4A3 /* AccountCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24743AC005F9CDDCB12558B1 /* Pods-PWReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PWReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-PWReminder/Pods-PWReminder.release.xcconfig"; sourceTree = "<group>"; };
+		27E99965C56BA54767CA1620 /* libPods-PWReminder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PWReminder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A03AAA1464410C87C77F22AE /* Pods-PWReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PWReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PWReminder/Pods-PWReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		B3283DCF1F1DF16A00BC3B44 /* PublicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicHeader.h; sourceTree = "<group>"; };
 		B332D40F1F1B962600DC9B8E /* PWReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PWReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B332D4131F1B962600DC9B8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B332D4151F1B962600DC9B8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B332D4161F1B962600DC9B8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B332D4181F1B962600DC9B8E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B332D4191F1B962600DC9B8E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B332D41C1F1B962600DC9B8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B332D41E1F1B962600DC9B8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B332D4211F1B962600DC9B8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B332D4231F1B962600DC9B8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B332D42B1F1B99B900DC9B8E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		B332D42C1F1B99B900DC9B8E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B332D4301F1B99B900DC9B8E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B332D4311F1B99B900DC9B8E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B332D4321F1B99B900DC9B8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B332D4331F1B99B900DC9B8E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B332D4341F1B99B900DC9B8E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B332D4351F1B99B900DC9B8E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B332D4411F1BA05900DC9B8E /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		B332D4431F1CB1AB00DC9B8E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		B332D4441F1CB1AB00DC9B8E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		B332D4461F1CB27300DC9B8E /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		B332D4471F1CB27300DC9B8E /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		B38FC8031F1F067D00CEE4A3 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		B38FC8041F1F067D00CEE4A3 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		B38FC8061F1F06A900CEE4A3 /* AddOrModViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOrModViewController.h; sourceTree = "<group>"; };
+		B38FC8071F1F06A900CEE4A3 /* AddOrModViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOrModViewController.m; sourceTree = "<group>"; };
+		B38FC8091F1F086400CEE4A3 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		B38FC80A1F1F086400CEE4A3 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		B38FC80C1F1F0BD900CEE4A3 /* CustomNavagationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavagationController.h; sourceTree = "<group>"; };
+		B38FC80D1F1F0BD900CEE4A3 /* CustomNavagationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavagationController.m; sourceTree = "<group>"; };
+		B38FC80F1F1F26EC00CEE4A3 /* AccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountModel.h; sourceTree = "<group>"; };
+		B38FC8101F1F26EC00CEE4A3 /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountModel.m; sourceTree = "<group>"; };
+		B38FC8121F1F2AE000CEE4A3 /* UtilsMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacro.h; sourceTree = "<group>"; };
+		B38FC8131F1F319400CEE4A3 /* AddOrModView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOrModView.h; sourceTree = "<group>"; };
+		B38FC8141F1F319400CEE4A3 /* AddOrModView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOrModView.m; sourceTree = "<group>"; };
+		B38FC8161F1F843A00CEE4A3 /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
+		B38FC8171F1F843A00CEE4A3 /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +67,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B332D4421F1BA05900DC9B8E /* LocalAuthentication.framework in Frameworks */,
+				AE038D2DF4FD1BA05A25FAD7 /* libPods-PWReminder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		306369B3A396913EFE146939 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A03AAA1464410C87C77F22AE /* Pods-PWReminder.debug.xcconfig */,
+				24743AC005F9CDDCB12558B1 /* Pods-PWReminder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3F73E1327387A5B87EB50A55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27E99965C56BA54767CA1620 /* libPods-PWReminder.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B332D4061F1B962600DC9B8E = {
 			isa = PBXGroup;
 			children = (
+				B332D4411F1BA05900DC9B8E /* LocalAuthentication.framework */,
 				B332D4111F1B962600DC9B8E /* PWReminder */,
 				B332D4101F1B962600DC9B8E /* Products */,
+				306369B3A396913EFE146939 /* Pods */,
+				3F73E1327387A5B87EB50A55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,25 +114,76 @@
 		B332D4111F1B962600DC9B8E /* PWReminder */ = {
 			isa = PBXGroup;
 			children = (
-				B332D4151F1B962600DC9B8E /* AppDelegate.h */,
-				B332D4161F1B962600DC9B8E /* AppDelegate.m */,
-				B332D4181F1B962600DC9B8E /* ViewController.h */,
-				B332D4191F1B962600DC9B8E /* ViewController.m */,
-				B332D41B1F1B962600DC9B8E /* Main.storyboard */,
-				B332D41E1F1B962600DC9B8E /* Assets.xcassets */,
-				B332D4201F1B962600DC9B8E /* LaunchScreen.storyboard */,
-				B332D4231F1B962600DC9B8E /* Info.plist */,
-				B332D4121F1B962600DC9B8E /* Supporting Files */,
+				B332D4291F1B99B900DC9B8E /* Main */,
+				B332D42F1F1B99B900DC9B8E /* Other */,
 			);
 			path = PWReminder;
 			sourceTree = "<group>";
 		};
-		B332D4121F1B962600DC9B8E /* Supporting Files */ = {
+		B332D4291F1B99B900DC9B8E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B332D4131F1B962600DC9B8E /* main.m */,
+				B332D42A1F1B99B900DC9B8E /* Controller */,
+				B332D42D1F1B99B900DC9B8E /* Model */,
+				B332D42E1F1B99B900DC9B8E /* View */,
 			);
-			name = "Supporting Files";
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B332D42A1F1B99B900DC9B8E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B332D42B1F1B99B900DC9B8E /* MainViewController.h */,
+				B332D42C1F1B99B900DC9B8E /* MainViewController.m */,
+				B332D4431F1CB1AB00DC9B8E /* LoginViewController.h */,
+				B332D4441F1CB1AB00DC9B8E /* LoginViewController.m */,
+				B38FC8031F1F067D00CEE4A3 /* SettingViewController.h */,
+				B38FC8041F1F067D00CEE4A3 /* SettingViewController.m */,
+				B38FC8061F1F06A900CEE4A3 /* AddOrModViewController.h */,
+				B38FC8071F1F06A900CEE4A3 /* AddOrModViewController.m */,
+				B38FC8091F1F086400CEE4A3 /* BaseViewController.h */,
+				B38FC80A1F1F086400CEE4A3 /* BaseViewController.m */,
+				B38FC80C1F1F0BD900CEE4A3 /* CustomNavagationController.h */,
+				B38FC80D1F1F0BD900CEE4A3 /* CustomNavagationController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B332D42D1F1B99B900DC9B8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B38FC80F1F1F26EC00CEE4A3 /* AccountModel.h */,
+				B38FC8101F1F26EC00CEE4A3 /* AccountModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B332D42E1F1B99B900DC9B8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B332D4461F1CB27300DC9B8E /* LoginView.h */,
+				B332D4471F1CB27300DC9B8E /* LoginView.m */,
+				B38FC8131F1F319400CEE4A3 /* AddOrModView.h */,
+				B38FC8141F1F319400CEE4A3 /* AddOrModView.m */,
+				B38FC8161F1F843A00CEE4A3 /* AccountCell.h */,
+				B38FC8171F1F843A00CEE4A3 /* AccountCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B332D42F1F1B99B900DC9B8E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				B38FC8121F1F2AE000CEE4A3 /* UtilsMacro.h */,
+				B332D4301F1B99B900DC9B8E /* AppDelegate.h */,
+				B332D4311F1B99B900DC9B8E /* AppDelegate.m */,
+				B332D4321F1B99B900DC9B8E /* Assets.xcassets */,
+				B332D4331F1B99B900DC9B8E /* Info.plist */,
+				B332D4341F1B99B900DC9B8E /* LaunchScreen.storyboard */,
+				B332D4351F1B99B900DC9B8E /* main.m */,
+				B3283DCF1F1DF16A00BC3B44 /* PublicHeader.h */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +193,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B332D4261F1B962600DC9B8E /* Build configuration list for PBXNativeTarget "PWReminder" */;
 			buildPhases = (
+				A2AA1224937BBDA3C0829B75 /* [CP] Check Pods Manifest.lock */,
 				B332D40B1F1B962600DC9B8E /* Sources */,
 				B332D40C1F1B962600DC9B8E /* Frameworks */,
 				B332D40D1F1B962600DC9B8E /* Resources */,
+				DD71A5860B87CC85D4B80194 /* [CP] Embed Pods Frameworks */,
+				80D59EC9302A12353BCC7E59 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -110,6 +220,7 @@
 				TargetAttributes = {
 					B332D40E1F1B962600DC9B8E = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = AGM3SX866K;
 					};
 				};
 			};
@@ -136,45 +247,83 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B332D4221F1B962600DC9B8E /* LaunchScreen.storyboard in Resources */,
-				B332D41F1F1B962600DC9B8E /* Assets.xcassets in Resources */,
-				B332D41D1F1B962600DC9B8E /* Main.storyboard in Resources */,
+				B332D4391F1B99B900DC9B8E /* Assets.xcassets in Resources */,
+				B332D43B1F1B99B900DC9B8E /* LaunchScreen.storyboard in Resources */,
+				B332D43A1F1B99B900DC9B8E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		80D59EC9302A12353BCC7E59 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PWReminder/Pods-PWReminder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2AA1224937BBDA3C0829B75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DD71A5860B87CC85D4B80194 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PWReminder/Pods-PWReminder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B332D40B1F1B962600DC9B8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B332D41A1F1B962600DC9B8E /* ViewController.m in Sources */,
-				B332D4171F1B962600DC9B8E /* AppDelegate.m in Sources */,
-				B332D4141F1B962600DC9B8E /* main.m in Sources */,
+				B38FC8151F1F319400CEE4A3 /* AddOrModView.m in Sources */,
+				B332D4371F1B99B900DC9B8E /* MainViewController.m in Sources */,
+				B38FC80B1F1F086400CEE4A3 /* BaseViewController.m in Sources */,
+				B332D4481F1CB27300DC9B8E /* LoginView.m in Sources */,
+				B332D43C1F1B99B900DC9B8E /* main.m in Sources */,
+				B38FC8181F1F843B00CEE4A3 /* AccountCell.m in Sources */,
+				B38FC8081F1F06A900CEE4A3 /* AddOrModViewController.m in Sources */,
+				B38FC80E1F1F0BD900CEE4A3 /* CustomNavagationController.m in Sources */,
+				B332D4381F1B99B900DC9B8E /* AppDelegate.m in Sources */,
+				B38FC8111F1F26EC00CEE4A3 /* AccountModel.m in Sources */,
+				B332D4451F1CB1AB00DC9B8E /* LoginViewController.m in Sources */,
+				B38FC8051F1F067D00CEE4A3 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B332D41B1F1B962600DC9B8E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B332D41C1F1B962600DC9B8E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B332D4201F1B962600DC9B8E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B332D4211F1B962600DC9B8E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B332D4241F1B962600DC9B8E /* Debug */ = {
@@ -261,23 +410,33 @@
 		};
 		B332D4271F1B962600DC9B8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A03AAA1464410C87C77F22AE /* Pods-PWReminder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PWReminder/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/PWReminder/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.steveleo.PWReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		B332D4281F1B962600DC9B8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24743AC005F9CDDCB12558B1 /* Pods-PWReminder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PWReminder/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/PWReminder/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.steveleo.PWReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -300,6 +459,7 @@
 				B332D4281F1B962600DC9B8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
