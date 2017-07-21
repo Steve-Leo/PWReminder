@@ -11,5 +11,6 @@ target 'PWReminder' do
   pod 'Masonry'
   pod 'SVProgressHUD'
   pod 'IQKeyboardManager'
+  pod 'FMDB'
 
 end

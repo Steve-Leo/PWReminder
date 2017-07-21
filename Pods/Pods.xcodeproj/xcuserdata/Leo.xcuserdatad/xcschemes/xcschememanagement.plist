@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -32,7 +37,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>25B4CA172FE8C4B859F3A45A50CA83C6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5D51158DE6EEED5A85C7FD576EB42EC3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8642CC820CE8C5B88C113D7F47AF4BC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -58,6 +73,11 @@
 			<true/>
 		</dict>
 		<key>E5F2E23525FF87F07988BF33F430933A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC09517694A6055A7D1E52EC76CF1629</key>
 		<dict>
 			<key>primary</key>
 			<true/>

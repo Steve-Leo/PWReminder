@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AE038D2DF4FD1BA05A25FAD7 /* libPods-PWReminder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E99965C56BA54767CA1620 /* libPods-PWReminder.a */; };
+		B31B938F1F20AACA00ED67A5 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B31B938E1F20AACA00ED67A5 /* DataManager.m */; };
+		B31B93921F20ABD500ED67A5 /* DataStoreTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B31B93911F20ABD500ED67A5 /* DataStoreTool.m */; };
 		B332D4371F1B99B900DC9B8E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D42C1F1B99B900DC9B8E /* MainViewController.m */; };
 		B332D4381F1B99B900DC9B8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D4311F1B99B900DC9B8E /* AppDelegate.m */; };
 		B332D4391F1B99B900DC9B8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B332D4321F1B99B900DC9B8E /* Assets.xcassets */; };
@@ -30,6 +32,11 @@
 		24743AC005F9CDDCB12558B1 /* Pods-PWReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PWReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-PWReminder/Pods-PWReminder.release.xcconfig"; sourceTree = "<group>"; };
 		27E99965C56BA54767CA1620 /* libPods-PWReminder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PWReminder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A03AAA1464410C87C77F22AE /* Pods-PWReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PWReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PWReminder/Pods-PWReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		B31B938D1F20AACA00ED67A5 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		B31B938E1F20AACA00ED67A5 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		B31B93901F20ABD500ED67A5 /* DataStoreTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStoreTool.h; sourceTree = "<group>"; };
+		B31B93911F20ABD500ED67A5 /* DataStoreTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStoreTool.m; sourceTree = "<group>"; };
+		B31B93931F20B30200ED67A5 /* SingletonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingletonMacro.h; sourceTree = "<group>"; };
 		B3283DCF1F1DF16A00BC3B44 /* PublicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicHeader.h; sourceTree = "<group>"; };
 		B332D40F1F1B962600DC9B8E /* PWReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PWReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332D42B1F1B99B900DC9B8E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -92,6 +99,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B31B938C1F20AA5900ED67A5 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				B31B93931F20B30200ED67A5 /* SingletonMacro.h */,
+				B31B93901F20ABD500ED67A5 /* DataStoreTool.h */,
+				B31B93911F20ABD500ED67A5 /* DataStoreTool.m */,
+				B31B938D1F20AACA00ED67A5 /* DataManager.h */,
+				B31B938E1F20AACA00ED67A5 /* DataManager.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		B332D4061F1B962600DC9B8E = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +142,7 @@
 		B332D4291F1B99B900DC9B8E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B31B938C1F20AA5900ED67A5 /* Tool */,
 				B332D42A1F1B99B900DC9B8E /* Controller */,
 				B332D42D1F1B99B900DC9B8E /* Model */,
 				B332D42E1F1B99B900DC9B8E /* View */,
@@ -309,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38FC8151F1F319400CEE4A3 /* AddOrModView.m in Sources */,
+				B31B938F1F20AACA00ED67A5 /* DataManager.m in Sources */,
 				B332D4371F1B99B900DC9B8E /* MainViewController.m in Sources */,
 				B38FC80B1F1F086400CEE4A3 /* BaseViewController.m in Sources */,
 				B332D4481F1CB27300DC9B8E /* LoginView.m in Sources */,
@@ -320,6 +341,7 @@
 				B38FC8111F1F26EC00CEE4A3 /* AccountModel.m in Sources */,
 				B332D4451F1CB1AB00DC9B8E /* LoginViewController.m in Sources */,
 				B38FC8051F1F067D00CEE4A3 /* SettingViewController.m in Sources */,
+				B31B93921F20ABD500ED67A5 /* DataStoreTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

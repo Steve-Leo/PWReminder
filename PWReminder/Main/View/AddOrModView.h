@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AccountModel;
+
 @protocol AddOrModViewDelegate<NSObject>
+
 - (void)didClickAccountTypeBtn;
+
 @end
 
 @interface AddOrModView : UIView
+
 @property (nonatomic, weak)id<AddOrModViewDelegate> delegate;
+- (void)setAccountModel:(AccountModel *)accountModel;
+- (void)setAcountTypeTitle;
 @end

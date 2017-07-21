@@ -8,12 +8,14 @@
 
 #import "AddOrModView.h"
 #import "PublicHeader.h"
+#import "AccountModel.h"
 
 @interface AddOrModView ()
 {
     UIScrollView *_bgScrollView;
     
     UILabel *_accountTypeTitleLabel;
+    UILabel *_accountNameTitleLabel;
     UILabel *_accountTitleLabel;
     UILabel *_passwordTitleLabel;
     UILabel *_remarkTitleLabel;
@@ -21,11 +23,13 @@
     UIButton    *_accountTypeBtn;
     UIButton    *_lockBtn;
     
+    UITextField *_accountNameTextField;
     UITextField *_accountTextField;
     UITextField *_passwordTextFiled;
     
     UITextView  *_remarkTextView;
 }
+@property (nonatomic, strong)AccountModel *accountModel;
 
 @end
 
@@ -38,6 +42,7 @@
     if (self)
     {
         self.backgroundColor = [UIColor whiteColor];
+        _accountModel = [[AccountModel alloc] init];
         [self addViews];
         [self createUI];
     }
@@ -50,6 +55,7 @@
     [_bgScrollView setShowsVerticalScrollIndicator:NO];
     
     _accountTypeTitleLabel = [self createLabelWithString:@"账户类型"];
+    _accountNameTitleLabel = [self createLabelWithString:@"名        称"];
     _accountTitleLabel     = [self createLabelWithString:@"账        号"];
     _passwordTitleLabel    = [self createLabelWithString:@"密        码"];
     _remarkTitleLabel      = [self createLabelWithString:@"备        注"];
@@ -58,21 +64,17 @@
     [_accountTypeBtn setTitle:@"点击选择账户类型" forState:UIControlStateNormal];
     [_accountTypeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_accountTypeBtn addTarget:self action:@selector(accountTypeBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    _accountTextField = [[UITextField alloc] init];
-    _accountTextField.font = [UIFont systemFontOfSize:18.0f];
-    _accountTextField.placeholder = @"请输入账号";
-    _accountTextField.textAlignment = NSTextAlignmentCenter;
+    
+    _accountNameTextField = [self createTextFieldWithPlaceholder:@"请输入名称"];
+    _accountTextField = [self createTextFieldWithPlaceholder:@"请输入账号"];
     
     _lockBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
     [_lockBtn setImage:[[UIImage imageNamed:@"lock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     [_lockBtn addTarget:self action:@selector(securityLockClick:) forControlEvents:UIControlEventTouchUpInside];
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
     
-    _passwordTextFiled = [[UITextField alloc] init];
+    _passwordTextFiled = [self createTextFieldWithPlaceholder:@"请输入密码"];
     _passwordTextFiled.secureTextEntry = YES;
-    _passwordTextFiled.font = [UIFont systemFontOfSize:18.0f];
-    _passwordTextFiled.placeholder = @"请输入密码";
-    _passwordTextFiled.textAlignment = NSTextAlignmentCenter;
     _passwordTextFiled.rightView = _lockBtn;
     _passwordTextFiled.leftView = leftView;
     [_passwordTextFiled setRightViewMode:UITextFieldViewModeAlways];
@@ -86,11 +88,13 @@
     [self addSubview: _bgScrollView];
     
     [_bgScrollView addSubview:_accountTypeTitleLabel];
+    [_bgScrollView addSubview:_accountNameTitleLabel];
     [_bgScrollView addSubview:_accountTitleLabel];
     [_bgScrollView addSubview:_passwordTitleLabel];
     [_bgScrollView addSubview:_remarkTitleLabel];
     
     [_bgScrollView addSubview:_accountTypeBtn];
+    [_bgScrollView addSubview:_accountNameTextField];
     [_bgScrollView addSubview:_accountTextField];
     [_bgScrollView addSubview:_passwordTextFiled];
     [_bgScrollView addSubview:_remarkTextView];
@@ -109,19 +113,24 @@
         make.size.equalTo(CGSizeMake(86.0f, 44.0f));
     }];
     
+    [_accountNameTitleLabel makeConstraints:^(MASConstraintMaker *make) {
+        make.left.width.height.equalTo(_accountTypeTitleLabel);
+        make.top.equalTo(_accountTypeTitleLabel.bottom).offset(20.0f);
+    }];
+    
     [_accountTitleLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.height.equalTo(_accountTypeTitleLabel);
-        make.top.equalTo(_accountTypeTitleLabel.bottom).offset(36.0f);
+        make.top.equalTo(_accountNameTitleLabel.bottom).offset(20.0f);
     }];
     
     [_passwordTitleLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.height.equalTo(_accountTitleLabel);
-        make.top.equalTo(_accountTitleLabel.bottom).offset(36.0f);
+        make.top.equalTo(_accountTitleLabel.bottom).offset(20.0f);
     }];
     
     [_remarkTitleLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.height.equalTo(_accountTitleLabel);
-        make.top.equalTo(_passwordTitleLabel.bottom).offset(36.0f);
+        make.top.equalTo(_passwordTitleLabel.bottom).offset(20.0f);
     }];
     
     
@@ -130,6 +139,11 @@
         make.left.equalTo(_accountTypeTitleLabel.right).offset(20.0f);
         make.right.equalTo(self).offset(-36.0f);
         make.height.equalTo(44.0f);
+    }];
+    
+    [_accountNameTextField makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.height.equalTo(_accountTypeBtn);
+        make.centerY.equalTo(_accountNameTitleLabel);
     }];
     
     [_accountTextField makeConstraints:^(MASConstraintMaker *make) {
@@ -164,6 +178,15 @@
     return label;
 }
 
+- (UITextField *)createTextFieldWithPlaceholder:(NSString *)placeholder
+{
+    UITextField *textField = [[UITextField alloc] init];
+    textField.font = [UIFont systemFontOfSize:18.0f];
+    textField.placeholder = placeholder;
+    textField.textAlignment = NSTextAlignmentCenter;
+    return textField;
+}
+
 - (void)accountTypeBtnClick
 {
     if ([_delegate respondsToSelector:@selector(didClickAccountTypeBtn)])
@@ -185,6 +208,48 @@
         [button setImage:[[UIImage imageNamed:@"unlock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     }
     button.selected = !button.isSelected;
+}
+
+#pragma mark- setter & getter
+
+- (void)setAccountModel:(AccountModel *)accountModel
+{
+    if (accountModel == nil)
+    {
+        return;
+    }
+    _accountModel = accountModel;
+    _accountNameTextField.text = accountModel.name;
+    _accountTextField.text = _accountModel.account;
+    _passwordTextFiled.text = _accountModel.password;
+    _remarkTextView.text = _accountModel.remark;
+    [self setAcountTypeTitle];
+}
+
+- (void)setAcountTypeTitle
+{
+    _passwordTextFiled.keyboardType = UIKeyboardTypeAlphabet;
+    switch (_accountModel.accountModelType)
+    {
+        case AccountModelTypeSocialNetwork: {
+            [_accountTypeBtn setTitle:@"社交网络" forState:UIControlStateNormal];
+            break;
+        }
+        case AccountModelTypeWeb: {
+            [_accountTypeBtn setTitle:@"网站论坛" forState:UIControlStateNormal];
+            break;
+        }
+        case AccountModelTypeBankCard: {
+            [_accountTypeBtn setTitle:@"银行卡号" forState:UIControlStateNormal];
+            _passwordTextFiled.keyboardType = UIKeyboardTypeNumberPad;
+            break;
+        }
+        case AccountModelTypeOther: {
+            [_accountTypeBtn setTitle:@"其他账号" forState:UIControlStateNormal];
+            break;
+        }
+    }
+
 }
 
 @end

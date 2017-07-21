@@ -9,5 +9,9 @@
 #import "SettingViewController.h"
 
 @implementation SettingViewController
-
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+//    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+}
 @end

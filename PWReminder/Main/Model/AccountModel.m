@@ -9,5 +9,13 @@
 #import "AccountModel.h"
 
 @implementation AccountModel
-
+- (instancetype)init
+{
+    self = [super init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyMMddhhmmss";
+    
+    self.accountId = [[dateFormatter stringFromDate:[NSDate date]] integerValue];
+    return self;
+}
 @end

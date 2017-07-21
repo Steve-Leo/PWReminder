@@ -11,6 +11,8 @@
 #import "AddOrModViewController.h"
 #import "AccountCell.h"
 #import "AccountModel.h"
+#import "DataManager.h"
+
 
 @interface MainViewController ()
 {
@@ -27,12 +29,20 @@ static NSString * const cellReuseableID = @"accontId";
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _sectionTitle = @[@"社交网络",@"网站论坛",@"银行卡",@"其他"];
     [self setNavigationBar];
-    
-    
-    
-    
+    AccountModel *model = [[AccountModel alloc] init];
+    model.accountModelType = AccountModelTypeBankCard;
+    model.name = @"中国工商银行";
+    model.account = @"8520";
+    model.password = @"123123";
+    [[DataManager shared] insertDataWithAccountModel:model];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    [super viewWillAppear:animated];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -40,7 +50,7 @@ static NSString * const cellReuseableID = @"accontId";
 }
 
 
-#pragma -mark UITableViewDelegate UITableViewDateSource
+#pragma mark- UITableViewDelegate UITableViewDateSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 4;
@@ -60,6 +70,7 @@ static NSString * const cellReuseableID = @"accontId";
         AccountModel *model = [[AccountModel alloc] init];
         model.accountModelType = AccountModelTypeBankCard;
         model.name = @"中国工商银行";
+        model.account = @"8520";
         model.password = @"123123";
         cell = [[AccountCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellReuseableID addAccountModel:model];
 //        cell.textLabel.text = [NSString stringWithFormat:@"Secton %ld Row %ld",(long)indexPath.section, (long)indexPath.row];
@@ -74,7 +85,12 @@ static NSString * const cellReuseableID = @"accontId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AddOrModViewController *addVC = [[AddOrModViewController alloc] init];
+    AccountModel *model = [[AccountModel alloc] init];
+    model.accountModelType = AccountModelTypeBankCard;
+    model.name = @"中国工商银行";
+    model.account = @"8520";
+    model.password = @"123123";
+    AddOrModViewController *addVC = [[AddOrModViewController alloc] initWithAccountModel:model];
     [addVC setTitle:@"修改账号"];
     
     [self.navigationController pushViewController:addVC animated:YES];
@@ -82,12 +98,10 @@ static NSString * const cellReuseableID = @"accontId";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80.0f;
+    return 72.0f;
 }
 
-
-
-#pragma -mark NavigationBar
+#pragma mark- NavigationBar
 - (void)setNavigationBar
 {
     self.title = @"Home";

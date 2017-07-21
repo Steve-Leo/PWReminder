@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
+@class AccountModel;
 @interface AddOrModViewController : BaseViewController
-
+- (instancetype)initWithAccountModel:(AccountModel *)model;
+- (void)saveData;
 @end

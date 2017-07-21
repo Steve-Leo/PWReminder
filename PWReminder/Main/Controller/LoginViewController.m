@@ -103,7 +103,7 @@ static NSString * const kPassword = @"loginPassword";
     }
 }
 
-#pragma -mark LoginViewDelegate
+#pragma mark- LoginViewDelegate
 - (void)didClickLoginBtn:(NSString *)password
 {
     if(password.length == 0)
@@ -145,7 +145,7 @@ static NSString * const kPassword = @"loginPassword";
     [self fingerPrinterCheck];
 }
 
-#pragma -mark Login
+#pragma mark- Login
 - (void)login
 {
     MainViewController *mainVC = [[MainViewController alloc] init];
@@ -156,7 +156,7 @@ static NSString * const kPassword = @"loginPassword";
     [[UIApplication sharedApplication].keyWindow setRootViewController:nv];
 }
 
-#pragma -mark Show Alert
+#pragma mark- Show Alert
 - (void)showAlert:(UIAlertController *)alertController
 {
     [self presentViewController:alertController animated:YES completion:nil];
