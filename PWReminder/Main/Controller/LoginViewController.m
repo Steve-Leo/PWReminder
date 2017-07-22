@@ -12,7 +12,7 @@
 #import "MainViewController.h"
 #import "LoginView.h"
 #import "PublicHeader.h"
-
+#import <MBProgressHUD.h>
 
 @interface LoginViewController ()<LoginViewDelegate>
 {
@@ -30,16 +30,16 @@ static NSString * const kPassword = @"loginPassword";
 {
     [super viewDidLoad];
     NSString *pw = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
-    if (pw == nil)
+    if (pw.length == 0 || pw == nil)
     {
         _isRegister = NO;
     }
     else
     {
         _isRegister = YES;
+        [self fingerPrinterCheck];
     }
     [self addViews];
-    [self fingerPrinterCheck];
 }
 
 - (void)addViews
@@ -67,6 +67,7 @@ static NSString * const kPassword = @"loginPassword";
         NSError *err = [NSError new];
         if (![laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err])
         {
+            [_loginView hidenFingerPrinterBtn];
             NSLog(@"对不起指纹识别将不可用%ld",(long)err.code);
             if (err.code == -8)
             {
@@ -91,12 +92,7 @@ static NSString * const kPassword = @"loginPassword";
             if (error.code == -2)
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
-//                    UIAlertController *failedAlertVC = [UIAlertController alertControllerWithTitle:@"指纹识别失败" message:@"No" preferredStyle:UIAlertControllerStyleAlert];
-////                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
-//                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-////                    [failedAlertVC addAction:okAction];
-//                    [failedAlertVC addAction:cancelAction];
-//                    [self showAlert:failedAlertVC];
+
                 });
             }
         }];
@@ -118,7 +114,13 @@ static NSString * const kPassword = @"loginPassword";
         [[NSUserDefaults standardUserDefaults] setObject:password forKey:kPassword];
         _isRegister = YES;
         
-        [self login];
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.label.text = @"注册成功，即将登录";
+        
+        [self performSelector:@selector(login) withObject:nil afterDelay:2.5f];
+        
+//        [self login];
         
     }
     else
@@ -148,11 +150,9 @@ static NSString * const kPassword = @"loginPassword";
 #pragma mark- Login
 - (void)login
 {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     MainViewController *mainVC = [[MainViewController alloc] init];
     CustomNavagationController *nv = [[CustomNavagationController alloc] initWithRootViewController:mainVC];
-    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    ViewController *vc = [storyboard instantiateInitialViewController];
     [[UIApplication sharedApplication].keyWindow setRootViewController:nv];
 }
 

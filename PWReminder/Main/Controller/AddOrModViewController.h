@@ -10,5 +10,6 @@
 @class AccountModel;
 @interface AddOrModViewController : BaseViewController
 - (instancetype)initWithAccountModel:(AccountModel *)model;
+- (BOOL)isInputOrUpdate;
 - (void)saveData;
 @end

@@ -19,5 +19,5 @@ SingletonH();
 - (void)deleteDataWithAccountId:(NSInteger )accountId;
 - (void)updateDataWithAccountModel:(AccountModel *)accountModel;
 - (AccountModel *)queryDataModelWithAccountId:(NSInteger)accountId;
-- (NSArray <NSArray *> *)queryAllData;
+- (NSMutableArray <NSMutableArray *> *)queryAllData;
 @end

@@ -16,5 +16,6 @@
 @interface LoginView : UIView
 - (instancetype)initWithRegisterState:(BOOL)registerState;
 @property (nonatomic, weak)id<LoginViewDelegate> delegate;
+- (void)hidenFingerPrinterBtn;
 
 @end

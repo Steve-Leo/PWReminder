@@ -13,10 +13,10 @@
 #import "AccountModel.h"
 #import "DataManager.h"
 
-
 @interface MainViewController ()
 {
     NSArray<NSString *> *_sectionTitle;
+    NSMutableArray<NSMutableArray *>  *_accountArray;
 }
 
 @end
@@ -26,21 +26,18 @@ static NSString * const cellReuseableID = @"accontId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    _sectionTitle = @[@"社交网络",@"网站论坛",@"银行卡",@"其他"];
     [self setNavigationBar];
-    AccountModel *model = [[AccountModel alloc] init];
-    model.accountModelType = AccountModelTypeBankCard;
-    model.name = @"中国工商银行";
-    model.account = @"8520";
-    model.password = @"123123";
-    [[DataManager shared] insertDataWithAccountModel:model];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    _accountArray = nil;
+    _accountArray = [[DataManager shared] queryAllData];
+    [self.tableView reloadData];
     [super viewWillAppear:animated];
 }
 
@@ -53,43 +50,53 @@ static NSString * const cellReuseableID = @"accontId";
 #pragma mark- UITableViewDelegate UITableViewDateSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return _accountArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return _accountArray[section].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseableID];
+    AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseableID];
     if (cell == nil)
     {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellReuseableID];
-        AccountModel *model = [[AccountModel alloc] init];
-        model.accountModelType = AccountModelTypeBankCard;
-        model.name = @"中国工商银行";
-        model.account = @"8520";
-        model.password = @"123123";
-        cell = [[AccountCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellReuseableID addAccountModel:model];
-//        cell.textLabel.text = [NSString stringWithFormat:@"Secton %ld Row %ld",(long)indexPath.section, (long)indexPath.row];
+        cell = [[AccountCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellReuseableID];
+//        cell = [[AccountCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellReuseableID addAccountModel:model];
     }
+    AccountModel *model = _accountArray[indexPath.section][indexPath.row];
+    [cell setAccountModel:model];
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return _sectionTitle[section];
+    AccountModel *model = [_accountArray[section] firstObject];
+    switch (model.accountModelType) {
+        case AccountModelTypeSocialNetwork: {
+            return @"社交网络";
+            break;
+        }
+        case AccountModelTypeWeb: {
+            return @"网站论坛";
+            break;
+        }
+        case AccountModelTypeBankCard: {
+            return @"银行卡";
+            break;
+        }
+        case AccountModelTypeOther: {
+            return @"其他账号";
+            break;
+        }
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AccountModel *model = [[AccountModel alloc] init];
-    model.accountModelType = AccountModelTypeBankCard;
-    model.name = @"中国工商银行";
-    model.account = @"8520";
-    model.password = @"123123";
+    AccountModel *model = _accountArray[indexPath.section][indexPath.row];
     AddOrModViewController *addVC = [[AddOrModViewController alloc] initWithAccountModel:model];
     [addVC setTitle:@"修改账号"];
     
@@ -100,6 +107,46 @@ static NSString * const cellReuseableID = @"accontId";
 {
     return 72.0f;
 }
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return   UITableViewCellEditingStyleDelete;
+}
+//先要设Cell可编辑
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+//进入编辑模式，按下出现的编辑按钮后
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    WS(weakself);
+    [tableView setEditing:NO animated:YES];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"妞妞确定要删除这条信息？" preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            AccountModel *model = _accountArray[indexPath.section][indexPath.row];
+            [[DataManager shared] deleteDataWithAccountModel: model];
+            [_accountArray[indexPath.section] removeObjectAtIndex:indexPath.row];
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }]];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+//修改编辑按钮文字
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+//设置进入编辑状态时，Cell不会缩进
+- (BOOL)tableView: (UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
 
 #pragma mark- NavigationBar
 - (void)setNavigationBar

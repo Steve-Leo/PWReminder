@@ -9,7 +9,7 @@ target 'PWReminder' do
 
   # Pods for PWReminder
   pod 'Masonry'
-  pod 'SVProgressHUD'
+  pod 'MBProgressHUD'
   pod 'IQKeyboardManager'
   pod 'FMDB'
 

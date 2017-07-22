@@ -10,6 +10,7 @@
 		AE038D2DF4FD1BA05A25FAD7 /* libPods-PWReminder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E99965C56BA54767CA1620 /* libPods-PWReminder.a */; };
 		B31B938F1F20AACA00ED67A5 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B31B938E1F20AACA00ED67A5 /* DataManager.m */; };
 		B31B93921F20ABD500ED67A5 /* DataStoreTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B31B93911F20ABD500ED67A5 /* DataStoreTool.m */; };
+		B31B93961F22373400ED67A5 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B31B93951F22373400ED67A5 /* SettingView.m */; };
 		B332D4371F1B99B900DC9B8E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D42C1F1B99B900DC9B8E /* MainViewController.m */; };
 		B332D4381F1B99B900DC9B8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B332D4311F1B99B900DC9B8E /* AppDelegate.m */; };
 		B332D4391F1B99B900DC9B8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B332D4321F1B99B900DC9B8E /* Assets.xcassets */; };
@@ -37,6 +38,9 @@
 		B31B93901F20ABD500ED67A5 /* DataStoreTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStoreTool.h; sourceTree = "<group>"; };
 		B31B93911F20ABD500ED67A5 /* DataStoreTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStoreTool.m; sourceTree = "<group>"; };
 		B31B93931F20B30200ED67A5 /* SingletonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingletonMacro.h; sourceTree = "<group>"; };
+		B31B93941F22373400ED67A5 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
+		B31B93951F22373400ED67A5 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
+		B31B93971F22F42C00ED67A5 /* PWReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PWReminder.entitlements; sourceTree = "<group>"; };
 		B3283DCF1F1DF16A00BC3B44 /* PublicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicHeader.h; sourceTree = "<group>"; };
 		B332D40F1F1B962600DC9B8E /* PWReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PWReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332D42B1F1B99B900DC9B8E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		B332D4111F1B962600DC9B8E /* PWReminder */ = {
 			isa = PBXGroup;
 			children = (
+				B31B93971F22F42C00ED67A5 /* PWReminder.entitlements */,
 				B332D4291F1B99B900DC9B8E /* Main */,
 				B332D42F1F1B99B900DC9B8E /* Other */,
 			);
@@ -187,6 +192,8 @@
 				B38FC8141F1F319400CEE4A3 /* AddOrModView.m */,
 				B38FC8161F1F843A00CEE4A3 /* AccountCell.h */,
 				B38FC8171F1F843A00CEE4A3 /* AccountCell.m */,
+				B31B93941F22373400ED67A5 /* SettingView.h */,
+				B31B93951F22373400ED67A5 /* SettingView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +248,11 @@
 					B332D40E1F1B962600DC9B8E = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = AGM3SX866K;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -342,6 +354,7 @@
 				B332D4451F1CB1AB00DC9B8E /* LoginViewController.m in Sources */,
 				B38FC8051F1F067D00CEE4A3 /* SettingViewController.m in Sources */,
 				B31B93921F20ABD500ED67A5 /* DataStoreTool.m in Sources */,
+				B31B93961F22373400ED67A5 /* SettingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

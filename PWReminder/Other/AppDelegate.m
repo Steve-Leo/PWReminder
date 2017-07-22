@@ -7,7 +7,9 @@
 //
 
 #import <IQKeyboardManager.h>
+#import "MainViewController.h"
 #import "LoginViewController.h"
+#import "CustomNavagationController.h"
 #import "AppDelegate.h"
 #import "PublicHeader.h"
 @interface AppDelegate ()
@@ -21,8 +23,14 @@
     // Override point for customization after application launch.
 //    [self fingerPrinterCheck];
     LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    MainViewController *mainVC = [[MainViewController alloc] init];
+    CustomNavagationController *cnvc = [[CustomNavagationController alloc] initWithRootViewController:mainVC];
+    
+    
+    
     [self.window setTintColor:UIColorFromHex(0xd4237a)];
-    self.window.rootViewController = loginViewController;
+//    self.window.rootViewController = loginViewController;
+    self.window.rootViewController = cnvc;
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
     [[IQKeyboardManager sharedManager] setToolbarTintColor:UIColorFromHex(0xd4237a)];
     return YES;
@@ -48,8 +56,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    LoginViewController *loginViewController = [[LoginViewController alloc] init];
-    self.window.rootViewController = loginViewController;
+//    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+//    self.window.rootViewController = loginViewController;
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 

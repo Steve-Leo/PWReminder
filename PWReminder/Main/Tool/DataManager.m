@@ -41,7 +41,7 @@ SingletonM();
 {
     [self.dbQueue inDatabase:^(FMDatabase *db) {
         NSString *sql = [NSString stringWithFormat:@"create table if not exists %@ ( \
-                         %@ integer primary key not null, %@ text, %@ text, %@ integer, %@ text, %@ text)",
+                         %@ integer primary key autoincrement not null, %@ text, %@ text, %@ integer, %@ text, %@ text)",
                          kPWTable, kAccountID, kAccountName, kAccount, kAccountType,kAccountPassword, kAccountRemark];
         [db executeUpdate:sql];
     }];
@@ -67,11 +67,10 @@ SingletonM();
 - (void)insertDataWithAccountModel:(AccountModel *)accountModel
 {
     [self.dbQueue inDatabase:^(FMDatabase *db) {
-        NSString *sql = [NSString stringWithFormat:@"insert or replace into %@ \
-                         (%@, %@, %@, %@, %@, %@) values(?, ?, ?, ?, ?, ?)",
-                         kPWTable, kAccountID, kAccountName, kAccount, kAccountType,kAccountPassword, kAccountRemark];
-        NSArray *dataArray = @[@(accountModel.accountId),
-                               accountModel.name ?: @"",
+        NSString *sql = [NSString stringWithFormat:@"insert into %@ \
+                         (%@, %@, %@, %@, %@) values( ?, ?, ?, ?, ?)",
+                         kPWTable, kAccountName, kAccount, kAccountType,kAccountPassword, kAccountRemark];
+        NSArray *dataArray = @[accountModel.name ?: @"",
                                accountModel.account ?: @"",
                                @(accountModel.accountModelType),
                                accountModel.password ?: @"",
@@ -99,7 +98,18 @@ SingletonM();
 
 - (void)updateDataWithAccountModel:(AccountModel *)accountModel
 {
-    [self insertDataWithAccountModel:accountModel];
+    [self.dbQueue inDatabase:^(FMDatabase *db) {
+        NSString *sql = [NSString stringWithFormat:@"replace into %@ \
+                         (%@, %@, %@, %@, %@, %@) values(?, ?, ?, ?, ?, ?)",
+                         kPWTable, kAccountID, kAccountName, kAccount, kAccountType,kAccountPassword, kAccountRemark];
+        NSArray *dataArray = @[@(accountModel.accountId),
+                               accountModel.name ?: @"",
+                               accountModel.account ?: @"",
+                               @(accountModel.accountModelType),
+                               accountModel.password ?: @"",
+                               accountModel.remark ?:@""];
+        [db executeUpdate:sql withArgumentsInArray:dataArray];
+    }];
 }
 
 - (AccountModel *)queryDataModelWithAccountId:(NSInteger)accountId
@@ -110,12 +120,12 @@ SingletonM();
     return [[result firstObject] firstObject];
 }
 
-- (NSArray <NSArray *> *)queryAllData
+- (NSMutableArray <NSMutableArray *> *)queryAllData
 {
     return [self queryAccountWithWhere:nil];
 }
 
-- (NSArray *)queryAccountWithWhere:(NSString *)where
+- (NSMutableArray *)queryAccountWithWhere:(NSString *)where
 {
     NSMutableArray *accountArray = [NSMutableArray array];
     
@@ -152,26 +162,27 @@ SingletonM();
                     break;
                 }
             }
-            if (accountSocialNetworkArray.count != 0)
-            {
-                [accountArray addObject:accountSocialNetworkArray];
-            }
-            if (accountWebArray.count != 0)
-            {
-                [accountArray addObject:accountWebArray];
-            }
-            if (accountBankCardArray.count != 0)
-            {
-                [accountArray addObject:accountBankCardArray];
-            }
-            if (accountOtherArray.count != 0)
-            {
-                [accountArray addObject:accountOtherArray];
-            }
         }
         
         [result close];
     }];
+    
+    if (accountSocialNetworkArray.count != 0)
+    {
+        [accountArray addObject:accountSocialNetworkArray];
+    }
+    if (accountWebArray.count != 0)
+    {
+        [accountArray addObject:accountWebArray];
+    }
+    if (accountBankCardArray.count != 0)
+    {
+        [accountArray addObject:accountBankCardArray];
+    }
+    if (accountOtherArray.count != 0)
+    {
+        [accountArray addObject:accountOtherArray];
+    }
     
     return accountArray;
 }

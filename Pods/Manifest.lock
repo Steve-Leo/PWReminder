@@ -4,20 +4,20 @@ PODS:
   - FMDB/standard (2.7.2)
   - IQKeyboardManager (4.0.10)
   - Masonry (1.0.2)
-  - SVProgressHUD (2.1.2)
+  - MBProgressHUD (1.0.0)
 
 DEPENDENCIES:
   - FMDB
   - IQKeyboardManager
   - Masonry
-  - SVProgressHUD
+  - MBProgressHUD
 
 SPEC CHECKSUMS:
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
 
-PODFILE CHECKSUM: ea2543285115691a961228ff1e80e53c84eb4385
+PODFILE CHECKSUM: c78f8301db4be7ee2ec0e2165cfc4a7ef41a9ea3
 
 COCOAPODS: 1.2.0

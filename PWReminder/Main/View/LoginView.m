@@ -113,6 +113,11 @@
     }
 }
 
+- (void)hidenFingerPrinterBtn
+{
+    _fingerPrinterBtn.hidden = YES;
+}
+
 - (void)createUI
 {
     [_titleLabel makeConstraints:^(MASConstraintMaker *make) {

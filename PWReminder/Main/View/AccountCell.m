@@ -27,12 +27,12 @@
 
 @implementation AccountCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier addAccountModel:(AccountModel *)model
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     [self addViews];
     [self createUI];
-    self.accountModel = model;
+//    self.accountModel = model;
     return self;
 }
 
@@ -68,7 +68,7 @@
     [_iconImageView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(10.0f);
         make.left.equalTo(self).offset(10.0f);
-        make.size.equalTo(CGSizeMake(40.0f, 30.0f));
+        make.size.equalTo(CGSizeMake(40.0f, 40.0f));
     }];
     
     [_nameLabel makeConstraints:^(MASConstraintMaker *make) {

@@ -15,6 +15,7 @@
 @interface AddOrModViewController()<AddOrModViewDelegate>
 {
     AddOrModView *_addOrModView;
+    AccountModel    *_tempAccountModel;
 }
 @property (nonatomic, strong)AccountModel *accountModel;
 
@@ -25,6 +26,8 @@
 {
     self = [super init];
     self.accountModel = model;
+    _tempAccountModel = [model copy];
+    
     return self;
 }
 
@@ -60,10 +63,45 @@
     }];
 }
 
+- (BOOL)isInputOrUpdate
+{
+    if (_tempAccountModel != nil)
+    {
+        if (_tempAccountModel.accountId == self.accountModel.accountId &&
+            _tempAccountModel.account == self.accountModel.account &&
+            _tempAccountModel.accountModelType == self.accountModel.accountModelType &&
+            _tempAccountModel.name == self.accountModel.name &&
+            _tempAccountModel.password == self.accountModel.password &&
+            _tempAccountModel.remark == self.accountModel.remark)
+        {
+            return NO;
+        }
+        return YES;
+    }
+    if (self.accountModel.password.length != 0 && self.accountModel.name.length != 0)
+    {
+        return YES;
+    }
+    
+    return NO;
+}
 
 - (void)saveData
 {
-    NSLog(@"保存数据");
+    if (self.accountModel.accountModelType == 0)
+    {
+        self.accountModel.accountModelType = AccountModelTypeOther;
+    }
+    
+    if (_tempAccountModel != nil)
+    {
+        [[DataManager shared] updateDataWithAccountModel:self.accountModel];
+
+    }
+    else
+    {
+        [[DataManager shared] insertDataWithAccountModel:self.accountModel];
+    }
 }
 
 

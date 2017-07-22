@@ -10,5 +10,6 @@
 @class AccountModel;
 
 @interface AccountCell : UITableViewCell
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier addAccountModel:(AccountModel *)model;
+//- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier addAccountModel:(AccountModel *)model;
+- (void)setAccountModel:(AccountModel *)accountModel;
 @end

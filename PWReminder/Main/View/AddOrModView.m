@@ -10,7 +10,7 @@
 #import "PublicHeader.h"
 #import "AccountModel.h"
 
-@interface AddOrModView ()
+@interface AddOrModView ()<UITextFieldDelegate, UITextViewDelegate>
 {
     UIScrollView *_bgScrollView;
     
@@ -25,7 +25,7 @@
     
     UITextField *_accountNameTextField;
     UITextField *_accountTextField;
-    UITextField *_passwordTextFiled;
+    UITextField *_passwordTextField;
     
     UITextView  *_remarkTextView;
 }
@@ -66,23 +66,27 @@
     [_accountTypeBtn addTarget:self action:@selector(accountTypeBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     _accountNameTextField = [self createTextFieldWithPlaceholder:@"请输入名称"];
+    _accountNameTextField.tag = 1;
     _accountTextField = [self createTextFieldWithPlaceholder:@"请输入账号"];
+    _accountTextField.tag = 2;
     
     _lockBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
     [_lockBtn setImage:[[UIImage imageNamed:@"lock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     [_lockBtn addTarget:self action:@selector(securityLockClick:) forControlEvents:UIControlEventTouchUpInside];
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
     
-    _passwordTextFiled = [self createTextFieldWithPlaceholder:@"请输入密码"];
-    _passwordTextFiled.secureTextEntry = YES;
-    _passwordTextFiled.rightView = _lockBtn;
-    _passwordTextFiled.leftView = leftView;
-    [_passwordTextFiled setRightViewMode:UITextFieldViewModeAlways];
-    [_passwordTextFiled setLeftViewMode:UITextFieldViewModeAlways];
+    _passwordTextField = [self createTextFieldWithPlaceholder:@"请输入密码"];
+    _passwordTextField.tag = 3;
+    _passwordTextField.secureTextEntry = YES;
+    _passwordTextField.rightView = _lockBtn;
+    _passwordTextField.leftView = leftView;
+    [_passwordTextField setRightViewMode:UITextFieldViewModeAlways];
+    [_passwordTextField setLeftViewMode:UITextFieldViewModeAlways];
 
-    _passwordTextFiled.selected = NO;
+    _passwordTextField.selected = NO;
     
     _remarkTextView = [[UITextView alloc] init];
+    _remarkTextView.delegate = self;
     _remarkTextView.font = [UIFont systemFontOfSize:18.0f];
     
     [self addSubview: _bgScrollView];
@@ -96,7 +100,7 @@
     [_bgScrollView addSubview:_accountTypeBtn];
     [_bgScrollView addSubview:_accountNameTextField];
     [_bgScrollView addSubview:_accountTextField];
-    [_bgScrollView addSubview:_passwordTextFiled];
+    [_bgScrollView addSubview:_passwordTextField];
     [_bgScrollView addSubview:_remarkTextView];
     
 }
@@ -151,7 +155,7 @@
         make.centerY.equalTo(_accountTitleLabel);
     }];
     
-    [_passwordTextFiled makeConstraints:^(MASConstraintMaker *make) {
+    [_passwordTextField makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(_accountTypeBtn);
         make.centerY.equalTo(_passwordTitleLabel);
     }];
@@ -184,6 +188,7 @@
     textField.font = [UIFont systemFontOfSize:18.0f];
     textField.placeholder = placeholder;
     textField.textAlignment = NSTextAlignmentCenter;
+    textField.delegate = self;
     return textField;
 }
 
@@ -199,12 +204,12 @@
 {
     if (button.isSelected)
     {
-        _passwordTextFiled.secureTextEntry = YES;
+        _passwordTextField.secureTextEntry = YES;
         [button setImage:[[UIImage imageNamed:@"lock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     }
     else
     {
-        _passwordTextFiled.secureTextEntry = NO;
+        _passwordTextField.secureTextEntry = NO;
         [button setImage:[[UIImage imageNamed:@"unlock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     }
     button.selected = !button.isSelected;
@@ -221,14 +226,15 @@
     _accountModel = accountModel;
     _accountNameTextField.text = accountModel.name;
     _accountTextField.text = _accountModel.account;
-    _passwordTextFiled.text = _accountModel.password;
+    _passwordTextField.text = _accountModel.password;
     _remarkTextView.text = _accountModel.remark;
     [self setAcountTypeTitle];
 }
 
 - (void)setAcountTypeTitle
 {
-    _passwordTextFiled.keyboardType = UIKeyboardTypeAlphabet;
+    _accountTextField.keyboardType  = UIKeyboardTypeAlphabet;
+    _passwordTextField.keyboardType = UIKeyboardTypeAlphabet;
     switch (_accountModel.accountModelType)
     {
         case AccountModelTypeSocialNetwork: {
@@ -241,7 +247,8 @@
         }
         case AccountModelTypeBankCard: {
             [_accountTypeBtn setTitle:@"银行卡号" forState:UIControlStateNormal];
-            _passwordTextFiled.keyboardType = UIKeyboardTypeNumberPad;
+            _passwordTextField.keyboardType = UIKeyboardTypeNumberPad;
+            _accountTextField.keyboardType  = UIKeyboardTypeNumberPad;
             break;
         }
         case AccountModelTypeOther: {
@@ -252,4 +259,54 @@
 
 }
 
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    switch (textField.tag)
+    {
+        case 1:
+            self.accountModel.name = _accountNameTextField.text;
+            break;
+        case 2:
+            self.accountModel.account = _accountTextField.text;
+            break;
+        case 3:
+            self.accountModel.password = _passwordTextField.text;
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    switch (textField.tag)
+    {
+        case 1:
+            self.accountModel.name = _accountNameTextField.text;
+            break;
+        case 2:
+            self.accountModel.account = _accountTextField.text;
+            break;
+        case 3:
+            self.accountModel.password = _passwordTextField.text;
+            break;
+            
+        default:
+            break;
+    }
+    return YES;
+}
+#pragma mark - UITextViewDelegate
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    self.accountModel.remark = textView.text;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    self.accountModel.remark = textView.text;
+    return YES;
+}
 @end
