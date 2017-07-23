@@ -12,5 +12,5 @@ target 'PWReminder' do
   pod 'MBProgressHUD'
   pod 'IQKeyboardManager'
   pod 'FMDB'
-
+  pod 'DZNEmptyDataSet'
 end

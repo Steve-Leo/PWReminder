@@ -31,24 +31,30 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-    }
-    [super viewWillAppear:animated];
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+//    }
+//    [super viewWillAppear:animated];
+//}
 
 //- (void)viewWillDisappear:(BOOL)animated
 //{
-////    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-////    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+//    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+//        self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+//    }
+
 //    [self viewWillDisappear:animated];
 //}
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"addOrMod_bg"].CGImage);
     [self addViews];
+    
 }
 
 - (void)addViews
@@ -111,31 +117,26 @@
 {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"选择账户类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *bankCardAction = [UIAlertAction actionWithTitle:@"银行卡" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"hello world");
         self.accountModel.accountModelType = AccountModelTypeBankCard;
         [_addOrModView setAcountTypeTitle];
     }];
     
-    UIAlertAction *webAction = [UIAlertAction actionWithTitle:@"网站论坛" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"hello world");
+    UIAlertAction *webAction = [UIAlertAction actionWithTitle:@"网站与应用" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         self.accountModel.accountModelType = AccountModelTypeWeb;
         [_addOrModView setAcountTypeTitle];
     }];
     
     UIAlertAction *socialNetworkAction = [UIAlertAction actionWithTitle:@"社交网络" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"hello world");
         self.accountModel.accountModelType = AccountModelTypeSocialNetwork;
         [_addOrModView setAcountTypeTitle];
     }];
     
     UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"其他账号" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"hello world");
         self.accountModel.accountModelType = AccountModelTypeOther;
         [_addOrModView setAcountTypeTitle];
     }];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"hello world");
     }];
     
     

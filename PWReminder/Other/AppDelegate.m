@@ -22,17 +22,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 //    [self fingerPrinterCheck];
+    [NSThread sleepForTimeInterval:1.5];
     LoginViewController *loginViewController = [[LoginViewController alloc] init];
-    MainViewController *mainVC = [[MainViewController alloc] init];
-    CustomNavagationController *cnvc = [[CustomNavagationController alloc] initWithRootViewController:mainVC];
+//    MainViewController *mainVC = [[MainViewController alloc] init];
+//    CustomNavagationController *cnvc = [[CustomNavagationController alloc] initWithRootViewController:mainVC];
     
     
     
-    [self.window setTintColor:UIColorFromHex(0xd4237a)];
+    [self.window setTintColor:UIColorFromHex(0xE14F0C)];
+//    [self.window setTintColor:[UIColor whiteColor]];
 //    self.window.rootViewController = loginViewController;
-    self.window.rootViewController = cnvc;
+    self.window.rootViewController = loginViewController;
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
-    [[IQKeyboardManager sharedManager] setToolbarTintColor:UIColorFromHex(0xd4237a)];
+    [[IQKeyboardManager sharedManager] setToolbarTintColor:UIColorFromHex(0xE14F0C)];
     return YES;
 }
 
@@ -56,8 +58,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-//    LoginViewController *loginViewController = [[LoginViewController alloc] init];
-//    self.window.rootViewController = loginViewController;
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    self.window.rootViewController = loginViewController;
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 

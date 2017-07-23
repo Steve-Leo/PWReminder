@@ -27,6 +27,8 @@
 		B38FC8111F1F26EC00CEE4A3 /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FC8101F1F26EC00CEE4A3 /* AccountModel.m */; };
 		B38FC8151F1F319400CEE4A3 /* AddOrModView.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FC8141F1F319400CEE4A3 /* AddOrModView.m */; };
 		B38FC8181F1F843B00CEE4A3 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B38FC8171F1F843A00CEE4A3 /* AccountCell.m */; };
+		B391C3DE1F245F1200C6BA28 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B391C3DD1F245F1200C6BA28 /* bg.jpg */; };
+		B3AA9E521F244CE800009E2C /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AA9E511F244CE800009E2C /* LaunchScreenViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,9 @@
 		B38FC8141F1F319400CEE4A3 /* AddOrModView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOrModView.m; sourceTree = "<group>"; };
 		B38FC8161F1F843A00CEE4A3 /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
 		B38FC8171F1F843A00CEE4A3 /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
+		B391C3DD1F245F1200C6BA28 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		B3AA9E501F244CE800009E2C /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
+		B3AA9E511F244CE800009E2C /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +123,7 @@
 		B332D4061F1B962600DC9B8E = {
 			isa = PBXGroup;
 			children = (
+				B391C3DD1F245F1200C6BA28 /* bg.jpg */,
 				B332D4411F1BA05900DC9B8E /* LocalAuthentication.framework */,
 				B332D4111F1B962600DC9B8E /* PWReminder */,
 				B332D4101F1B962600DC9B8E /* Products */,
@@ -170,6 +176,8 @@
 				B38FC80A1F1F086400CEE4A3 /* BaseViewController.m */,
 				B38FC80C1F1F0BD900CEE4A3 /* CustomNavagationController.h */,
 				B38FC80D1F1F0BD900CEE4A3 /* CustomNavagationController.m */,
+				B3AA9E501F244CE800009E2C /* LaunchScreenViewController.h */,
+				B3AA9E511F244CE800009E2C /* LaunchScreenViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,6 +289,7 @@
 			files = (
 				B332D4391F1B99B900DC9B8E /* Assets.xcassets in Resources */,
 				B332D43B1F1B99B900DC9B8E /* LaunchScreen.storyboard in Resources */,
+				B391C3DE1F245F1200C6BA28 /* bg.jpg in Resources */,
 				B332D43A1F1B99B900DC9B8E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38FC8151F1F319400CEE4A3 /* AddOrModView.m in Sources */,
+				B3AA9E521F244CE800009E2C /* LaunchScreenViewController.m in Sources */,
 				B31B938F1F20AACA00ED67A5 /* DataManager.m in Sources */,
 				B332D4371F1B99B900DC9B8E /* MainViewController.m in Sources */,
 				B38FC80B1F1F086400CEE4A3 /* BaseViewController.m in Sources */,

@@ -118,7 +118,7 @@ static NSString * const kPassword = @"loginPassword";
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.label.text = @"注册成功，即将登录";
         
-        [self performSelector:@selector(login) withObject:nil afterDelay:2.5f];
+        [self performSelector:@selector(login) withObject:nil afterDelay:1.5f];
         
 //        [self login];
         

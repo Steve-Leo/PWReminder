@@ -28,6 +28,8 @@
     UITextField *_passwordTextField;
     
     UITextView  *_remarkTextView;
+    
+    UIImageView *_imageView;
 }
 @property (nonatomic, strong)AccountModel *accountModel;
 
@@ -41,7 +43,6 @@
     self = [super init];
     if (self)
     {
-        self.backgroundColor = [UIColor whiteColor];
         _accountModel = [[AccountModel alloc] init];
         [self addViews];
         [self createUI];
@@ -61,8 +62,11 @@
     _remarkTitleLabel      = [self createLabelWithString:@"备        注"];
     
     _accountTypeBtn = [[UIButton alloc] init];
+    _accountTypeBtn.layer.cornerRadius = 8.0f;
+    [_accountTypeBtn setBackgroundColor:UIColorFromHex(0x272727)];
+    [_accountTypeBtn setTitleColor:UIColorFromHex(0x808080) forState:UIControlStateNormal];
+    _accountTypeBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [_accountTypeBtn setTitle:@"点击选择账户类型" forState:UIControlStateNormal];
-    [_accountTypeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_accountTypeBtn addTarget:self action:@selector(accountTypeBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     _accountNameTextField = [self createTextFieldWithPlaceholder:@"请输入名称"];
@@ -87,8 +91,12 @@
     
     _remarkTextView = [[UITextView alloc] init];
     _remarkTextView.delegate = self;
-    _remarkTextView.font = [UIFont systemFontOfSize:18.0f];
+    _remarkTextView.font = [UIFont systemFontOfSize:14.0f];
+    _remarkTextView.textColor = [UIColor whiteColor];
+    _remarkTextView.layer.cornerRadius = 8.0f;
+    _remarkTextView.backgroundColor = UIColorFromHex(0x272727);
     
+    _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rabbit"]];
     [self addSubview: _bgScrollView];
     
     [_bgScrollView addSubview:_accountTypeTitleLabel];
@@ -102,6 +110,7 @@
     [_bgScrollView addSubview:_accountTextField];
     [_bgScrollView addSubview:_passwordTextField];
     [_bgScrollView addSubview:_remarkTextView];
+    [_bgScrollView addSubview:_imageView];
     
 }
 
@@ -112,36 +121,36 @@
     }];
     
     [_accountTypeTitleLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(36.0f);
+        make.left.equalTo(self).offset(30.0f);
         make.top.equalTo(_bgScrollView).offset(50.0f);
-        make.size.equalTo(CGSizeMake(86.0f, 44.0f));
+        make.size.equalTo(CGSizeMake(72.0f, 44.0f));
     }];
     
     [_accountNameTitleLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.height.equalTo(_accountTypeTitleLabel);
-        make.top.equalTo(_accountTypeTitleLabel.bottom).offset(20.0f);
+        make.top.equalTo(_accountTypeTitleLabel.bottom).offset(16.0f);
     }];
     
     [_accountTitleLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.height.equalTo(_accountTypeTitleLabel);
-        make.top.equalTo(_accountNameTitleLabel.bottom).offset(20.0f);
+        make.top.equalTo(_accountNameTitleLabel.bottom).offset(16.0f);
     }];
     
     [_passwordTitleLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.height.equalTo(_accountTitleLabel);
-        make.top.equalTo(_accountTitleLabel.bottom).offset(20.0f);
+        make.top.equalTo(_accountTitleLabel.bottom).offset(16.0f);
     }];
     
     [_remarkTitleLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.height.equalTo(_accountTitleLabel);
-        make.top.equalTo(_passwordTitleLabel.bottom).offset(20.0f);
+        make.top.equalTo(_passwordTitleLabel.bottom).offset(16.0f);
     }];
     
     
     [_accountTypeBtn makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_accountTypeTitleLabel);
-        make.left.equalTo(_accountTypeTitleLabel.right).offset(20.0f);
-        make.right.equalTo(self).offset(-36.0f);
+        make.left.equalTo(_accountTypeTitleLabel.right).offset(10.0f);
+        make.right.equalTo(self).offset(-30.0f);
         make.height.equalTo(44.0f);
     }];
     
@@ -166,8 +175,14 @@
         make.height.equalTo(100.0f);
     }];
     
+    [_imageView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_remarkTextView.bottom).offset(36.0f);
+        make.centerX.equalTo(self);
+        make.size.equalTo(CGSizeMake(100.0f, 100.0f));
+    }];
+    
     [_bgScrollView updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(_remarkTextView).offset(10);
+        make.bottom.equalTo(_imageView).offset(10);
     }];
 }
 
@@ -175,18 +190,21 @@
 {
     UILabel *label = [[UILabel alloc] init];
     label.text = string;
-    
-    label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [UIColor cyanColor];
-    label.font = [UIFont systemFontOfSize:20.0f];
+    label.textColor = UIColorFromHex(0xFF5A0F);
+    label.textAlignment = NSTextAlignmentLeft;
+    label.font = [UIFont systemFontOfSize:16.0f];
     return label;
 }
 
 - (UITextField *)createTextFieldWithPlaceholder:(NSString *)placeholder
 {
     UITextField *textField = [[UITextField alloc] init];
-    textField.font = [UIFont systemFontOfSize:18.0f];
-    textField.placeholder = placeholder;
+    textField.font = [UIFont systemFontOfSize:14.0f];
+    textField.textColor = [UIColor whiteColor];
+    NSAttributedString *arrtPlaceHolder = [[NSAttributedString alloc] initWithString:placeholder attributes:@{NSForegroundColorAttributeName:UIColorFromHex(0x808080)}];
+    textField.attributedPlaceholder = arrtPlaceHolder;
+    textField.backgroundColor = UIColorFromHex(0x272727);
+    textField.layer.cornerRadius = 8.0f;
     textField.textAlignment = NSTextAlignmentCenter;
     textField.delegate = self;
     return textField;
@@ -233,6 +251,11 @@
 
 - (void)setAcountTypeTitle
 {
+    if (_accountModel.accountModelType == 0)
+    {
+        return;
+    }
+    [_accountTypeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _accountTextField.keyboardType  = UIKeyboardTypeAlphabet;
     _passwordTextField.keyboardType = UIKeyboardTypeAlphabet;
     switch (_accountModel.accountModelType)
@@ -242,7 +265,7 @@
             break;
         }
         case AccountModelTypeWeb: {
-            [_accountTypeBtn setTitle:@"网站论坛" forState:UIControlStateNormal];
+            [_accountTypeBtn setTitle:@"网站与应用" forState:UIControlStateNormal];
             break;
         }
         case AccountModelTypeBankCard: {

@@ -17,6 +17,8 @@
     UIButton        *_comfirmBtn;
     UIButton        *_uploadBtn;
     UIButton        *_downloadBtn;
+    
+    UIImageView     *_imageView;
 }
 
 @end
@@ -26,7 +28,6 @@
     self = [super init];
     if (self)
     {
-        self.backgroundColor = [UIColor whiteColor];
         [self addViews];
         [self createUI];
     }
@@ -43,11 +44,12 @@
     _lockBtn.selected = NO;
     
     _passwordTextField = [[UITextField alloc] init];
-    _passwordTextField.layer.cornerRadius = 20.0f;
+    _passwordTextField.layer.cornerRadius = 8.0f;
     _passwordTextField.backgroundColor = [UIColor lightGrayColor];
-    _passwordTextField.font = [UIFont systemFontOfSize:13.0f];
+    _passwordTextField.font = [UIFont systemFontOfSize:14.0f];
     _passwordTextField.textColor = [UIColor whiteColor];
-    _passwordTextField.backgroundColor = [UIColor cyanColor];
+    _passwordTextField.backgroundColor = UIColorFromHex(0x272727);
+//    _passwordTextField.backgroundColor = [UIColor cyanColor];
 //    _passwordTextField.background = [UIImage imageNamed:@"pw_input"];
     _passwordTextField.secureTextEntry = YES;
     _passwordTextField.textAlignment = NSTextAlignmentCenter;
@@ -63,10 +65,13 @@
     _uploadBtn = [self createButtonWithTitle:@"同步到 iCloud" andTag:2];
     _downloadBtn = [self createButtonWithTitle:@"从 iCloud 更新" andTag:3];
     
+    _imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bunny"]];
+    
     [self addSubview:_passwordTextField];
     [self addSubview:_comfirmBtn];
     [self addSubview:_uploadBtn];
     [self addSubview:_downloadBtn];
+    [self addSubview:_imageView];
     
 }
 
@@ -82,6 +87,12 @@
     [_comfirmBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_passwordTextField.bottom).offset(20.0f);
         make.left.right.height.equalTo(_passwordTextField);
+    }];
+    
+    [_imageView makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self);
+        make.centerY.equalTo(self).offset(36.0f);
+        make.size.equalTo(CGSizeMake(100.0f, 100.0f));
     }];
     
     [_uploadBtn makeConstraints:^(MASConstraintMaker *make) {
@@ -115,9 +126,9 @@
     UIButton *button = [[UIButton alloc] init];
     button.tag = tag;
     [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor orangeColor];
-    button.layer.cornerRadius = 10.0f;
+    [button setTitleColor:UIColorFromHex(0xf5f5f5) forState:UIControlStateNormal];
+    button.backgroundColor = UIColorFromHex(0xE14F0C);
+    button.layer.cornerRadius = 8.0f;
     button.layer.masksToBounds = YES;
     [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -131,6 +142,7 @@
 
 - (void)buttonClick:(UIButton *)button
 {
+    [_passwordTextField resignFirstResponder];
     switch (button.tag)
     {
         case 1:

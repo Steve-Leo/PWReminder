@@ -13,14 +13,53 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="F8D-ap-JhL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="妞妞放心把密码交给我吧" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAj-xm-cwJ">
+                                <rect key="frame" x="77" y="99" width="220" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是妞妞的密码小管家" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKq-7f-n49">
+                                <rect key="frame" x="102" y="147" width="170" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017.07 by：Leo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLH-Yh-qUd">
+                                <rect key="frame" x="211" y="616" width="127" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.91012293100357056" green="0.94864898920059204" blue="0.10245225578546524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F8D-ap-JhL" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="8Ba-Lx-9WU"/>
+                            <constraint firstItem="VLH-Yh-qUd" firstAttribute="leading" secondItem="F8D-ap-JhL" secondAttribute="trailing" constant="-164" id="Dau-ky-WDI"/>
+                            <constraint firstItem="VLH-Yh-qUd" firstAttribute="top" secondItem="F8D-ap-JhL" secondAttribute="bottom" constant="-51" id="Dj6-Wl-g8c"/>
+                            <constraint firstItem="F8D-ap-JhL" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="RBi-Gw-K3V"/>
+                            <constraint firstItem="GAj-xm-cwJ" firstAttribute="centerX" secondItem="F8D-ap-JhL" secondAttribute="centerX" id="feV-9l-zV4"/>
+                            <constraint firstItem="eKq-7f-n49" firstAttribute="centerX" secondItem="F8D-ap-JhL" secondAttribute="centerX" id="gfN-tB-Efj"/>
+                            <constraint firstAttribute="trailing" secondItem="F8D-ap-JhL" secondAttribute="trailing" id="gmD-8R-Wsh"/>
+                            <constraint firstItem="F8D-ap-JhL" firstAttribute="top" secondItem="GAj-xm-cwJ" secondAttribute="bottom" constant="-123" id="iFQ-86-yfO"/>
+                            <constraint firstItem="F8D-ap-JhL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ntz-6x-JL5"/>
+                            <constraint firstItem="eKq-7f-n49" firstAttribute="top" secondItem="GAj-xm-cwJ" secondAttribute="bottom" constant="24" id="uBN-qG-jk8"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="483" y="348"/>
+            <point key="canvasLocation" x="560.5" y="337.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="768" height="1280"/>
+    </resources>
 </document>
